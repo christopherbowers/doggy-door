@@ -24,8 +24,8 @@ class ShelterDetail(generics.RetrieveUpdateDestroyAPIView):
 #  breed views
 class BreedList(generics.ListCreateAPIView):
     queryset = Breeds.objects.all()
-    serializer_class = BreedsSerializer
+    serializer_class = BreedSerializer
 
 class BreedDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Breeds.objects.all()
-    serializer_class = BreedsSerializer
+    serializer_class = BreedSerializer
