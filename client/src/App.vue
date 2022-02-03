@@ -1,22 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Nav />
+    <main>
+      <router-view></router-view>
+    </main>
   </div>
 </template>
 
+
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Nav from './components/Nav'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Nav
   }
 }
 </script>
 
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -25,4 +29,13 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.card {
+  cursor: pointer;
+}
+
+.card:hover {
+  color: #385c80;
+}
+
 </style>
