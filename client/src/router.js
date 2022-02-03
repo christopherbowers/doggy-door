@@ -4,7 +4,7 @@ import Home from './pages/Home'
 // import AllDogs from './pages/AllDogs'
 
 const routes = [
-  {path: '/', component: 'Home', name: 'Home' }
+  {path: '/', component: Home, name: 'Home' }
 ]
 
 export default new VueRouter({ routes, mode: 'history' })
