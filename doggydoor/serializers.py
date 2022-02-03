@@ -32,7 +32,7 @@ class BreedSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Breed
-        fields = ('id', 'dog', 'dog_id', 'name', 'preview_url')
+        fields = ('id', 'dog', 'dog_id', 'name')
 
 
 class ShelterSerializer(serializers.HyperlinkedModelSerializer):
@@ -48,4 +48,4 @@ class ShelterSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Shelter
-        fields = ('id', 'dog', 'dog_id', 'name', 'preview_url')
+        fields = ('id', 'dog', 'dog_id', 'name')
