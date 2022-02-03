@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <Nav />
     <main>
       <router-view></router-view>
@@ -20,6 +20,7 @@ export default {
 </script>
 
 <style>
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -28,4 +29,13 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.card {
+  cursor: pointer;
+}
+
+.card:hover {
+  color: #385c80;
+}
+
 </style>

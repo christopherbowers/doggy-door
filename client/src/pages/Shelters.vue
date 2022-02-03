@@ -1,22 +1,21 @@
 <template>
   <div>
   <h2>Shelters</h2>
-  <section>
+  <div class="card">
     <ShelterCard
       :key="shelter.id"
       v-for="shelter in shelters"
       :shelter="shelter"
       @click.native="selectShelter(shelter.id)"
+      class
     />
-  </section>
+  </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-
 import ShelterCard from '../components/ShelterCard'
-console.log(ShelterCard)
 
 export default {
   name: 'Shelters',

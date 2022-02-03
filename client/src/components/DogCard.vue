@@ -1,16 +1,16 @@
 <template>
-  <div @click="selectShelter(shelterId)">
+  <div @click="selectDog(dogId)">
     <div class="info-wrapper flex-col">
-      {{ shelter.name }}
+      {{ dog.name }}
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ShelterCard',
+  name: 'DogCard',
   props: {
-    shelter: {}
+    dog: {}
   }
 }
 </script>

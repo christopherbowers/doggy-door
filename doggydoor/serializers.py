@@ -16,7 +16,7 @@ class DogSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Dog
-        fields = ('id', 'dog_id', 'name', 'age', 'breed', 'color', 'description', 'adopted', 'likes')
+        fields = ('id', 'name', 'age', 'breed', 'color', 'description', 'adopted', 'likes', 'breed_url')
 
 
 class BreedSerializer(serializers.HyperlinkedModelSerializer):
@@ -32,7 +32,7 @@ class BreedSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Breed
-        fields = ('id', 'dog', 'dog_id', 'name', 'preview_url')
+        fields = ('id', 'name', 'dog', 'dog_id')
 
 
 class ShelterSerializer(serializers.HyperlinkedModelSerializer):
@@ -41,11 +41,6 @@ class ShelterSerializer(serializers.HyperlinkedModelSerializer):
         read_only=True
     )
 
-    dog_id = serializers.PrimaryKeyRelatedField(
-        queryset=Dog.objects.all(),
-        source='dog'
-    )
-
     class Meta:
         model = Shelter
-        fields = ('id', 'dog', 'dog_id', 'name', 'preview_url')
+        fields = ('id', 'name', 'location', 'dog')
