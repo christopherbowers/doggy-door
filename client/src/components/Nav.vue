@@ -1,8 +1,7 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link>
-    <router-link to="/dogs">Pups</router-link>
-    <router-link to="/about">shelters</router-link>
+    <router-link to="/shelters">Shelters</router-link>
   </nav>
 </template>
 
