@@ -1,10 +1,14 @@
 <template>
   <div>
+  <h2>Shelters</h2>
+  <section>
     <ShelterCard
       :key="shelter.id"
       v-for="shelter in shelters"
       :shelter="shelter"
+      @click.native="selectShelter(shelter.id)"
     />
+  </section>
   </div>
 </template>
 
@@ -29,6 +33,9 @@ export default {
     async getShelters() {
       const res = await axios.get(`http://localhost:8000/shelters`)
       this.shelters = res.data
+    },
+    selectShelter(shelterId) {
+      this.$router.push(`shelters/${shelterId}`)
     }
   }
 }
