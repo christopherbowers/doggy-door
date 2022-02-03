@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .serializers import ArtistSerializer, SongSerializer
-from .models import Dog, Shelter, Breeds
+from .serializers import DogSerializer, BreedSerializer, ShelterSerializer
+from .models import Dog, Shelter, Breed
 
 # Create your views here.
 #  dog views
@@ -23,9 +23,9 @@ class ShelterDetail(generics.RetrieveUpdateDestroyAPIView):
 
 #  breed views
 class BreedList(generics.ListCreateAPIView):
-    queryset = Breeds.objects.all()
+    queryset = Breed.objects.all()
     serializer_class = BreedSerializer
 
 class BreedDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Breeds.objects.all()
+    queryset = Breed.objects.all()
     serializer_class = BreedSerializer

@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Breeds(models.Model):
+class Breed(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     
@@ -12,7 +12,7 @@ class Breeds(models.Model):
 class Dog(models.Model):
     name = models.CharField(max_length=100)
     age = models.IntegerField()
-    breed = models.ForeignKey(Breeds, on_delete=models.CASCADE, related_name='dogs')
+    breed = models.ForeignKey(Breed, on_delete=models.CASCADE, related_name='dogs')
     color = models.CharField(max_length=100)
     description = models.TextField(max_length=225)
     adopted = models.BooleanField()
