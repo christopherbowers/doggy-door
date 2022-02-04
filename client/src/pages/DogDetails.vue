@@ -19,10 +19,12 @@ const API_URL = process.env.VUE_APP_API_URL
 export default {
   name: 'DogDetails',
   data: () => ({
-    dogDetails: {}
+    dogDetails: {},
+    breed: {}
   }),
   mounted() {
     this.getDogDetails()
+    // this.getBreed()
   },
   methods:{
     async getDogDetails() {
@@ -30,6 +32,12 @@ export default {
       const res = await axios.get(`${API_URL}/dogs/${id}`)
       this.dogDetails = res.data
     }
+    // async getBreed() {
+    //   const breed_url = this.dogDetails
+    //   console.log(breed_url)
+    //   const res = await axios.get(`${breed_url}`)
+    //   this.breed = res.data.name
+    // }
   }
 }
 
