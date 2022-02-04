@@ -1,11 +1,37 @@
-from asyncore import read
-from dataclasses import fields
+# from asyncore import read
+# from dataclasses import fields
 from rest_framework import serializers
 from .models import Dog, Breed, Shelter
 
 class DogSerializer(serializers.HyperlinkedModelSerializer):
     breed = serializers.HyperlinkedRelatedField(
         view_name='breed_detail',
+        read_only=True
+    )
+
+    breed_id = serializers.PrimaryKeyRelatedField(
+        queryset=Breed.objects.all(),
+        source='breed'
+    )
+
+    shelter = serializers.HyperlinkedRelatedField(
+        view_name='shelter_detail',
+        read_only=True
+    )
+    
+
+    dog_url = serializers.ModelSerializer.serializer_url_field(
+        view_name='dog_detail'
+    )
+
+    class Meta:
+        model = Dog
+        fields = ('id', 'name', 'age', 'breed', 'color', 'description', 'adopted', 'likes', 'dog_url', 'breed_id', 'shelter')
+
+
+class BreedSerializer(serializers.HyperlinkedModelSerializer):
+    dogs = serializers.HyperlinkedRelatedField(
+        view_name='dog_detail',
         many=True,
         read_only=True
     )
@@ -15,32 +41,23 @@ class DogSerializer(serializers.HyperlinkedModelSerializer):
     )
 
     class Meta:
-        model = Dog
-        fields = ('id', 'name', 'age', 'breed', 'color', 'description', 'adopted', 'likes', 'breed_url')
-
-
-class BreedSerializer(serializers.HyperlinkedModelSerializer):
-    dog = serializers.HyperlinkedRelatedField(
-        view_name='dog_detail',
-        read_only=True
-    )
-
-    dog_id = serializers.PrimaryKeyRelatedField(
-        queryset=Dog.objects.all(),
-        source='dog'
-    )
-
-    class Meta:
         model = Breed
-        fields = ('id', 'name', 'dog', 'dog_id')
+        fields = ('id', 'dogs', 'breed_url', 'name')
+
 
 
 class ShelterSerializer(serializers.HyperlinkedModelSerializer):
-    dog = serializers.HyperlinkedRelatedField(
+    shelters = serializers.HyperlinkedRelatedField(
         view_name='dog_detail',
+        many=True,
         read_only=True
+    )
+
+    shelter_url = serializers.ModelSerializer.serializer_url_field(
+        view_name='shelter_detail'
     )
 
     class Meta:
         model = Shelter
-        fields = ('id', 'name', 'location', 'dog')
+        fields = ('id', 'name', 'location', 'shelter_url', 'shelter')
+
