@@ -62,13 +62,12 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware'
 ]
 
-# CORS_ALLOWED_ORIGINS = [
-#     "https://example.com",
-#     "http://localhost:3000",
-#     "http://127.0.0.1:3000"
-# ]
+CORS_ALLOWED_ORIGINS = [
+    "https://doggydoor.herokuapp.com/",
+    "http://localhost:8000"
+]
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'doggydoor_django.urls'
 
