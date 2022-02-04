@@ -18,7 +18,7 @@ class DogSerializer(serializers.HyperlinkedModelSerializer):
         view_name='shelter_detail',
         read_only=True
     )
-    
+
 
     dog_url = serializers.ModelSerializer.serializer_url_field(
         view_name='dog_detail'
@@ -59,5 +59,5 @@ class ShelterSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Shelter
-        fields = ('id', 'name', 'location', 'shelter_url', 'shelter')
+        fields = ('id', 'name', 'location', 'shelter_url', 'shelters')
 

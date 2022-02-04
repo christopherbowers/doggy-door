@@ -12,6 +12,7 @@
 
 <script>
 import axios from 'axios'
+const API_URL = process.env.VUE_APP_API_URL
 import DogCard from '../components/DogCard'
 
 export default {
@@ -27,7 +28,7 @@ export default {
   },
   methods: {
     async getAllDogs() {
-      const res = await axios.get(`http://localhost:8000/dogs`)
+      const res = await axios.get(`${API_URL}/dogs`)
       this.dogs = res.data
     }
   }
