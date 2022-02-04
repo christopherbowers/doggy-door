@@ -58,16 +58,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-        'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware'
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "https://doggydoor.herokuapp.com/",
-    "http://localhost:8000"
-]
+CORS_ALLOWED_ORIGINS_ALL = True
 
-# CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'doggydoor_django.urls'
 
