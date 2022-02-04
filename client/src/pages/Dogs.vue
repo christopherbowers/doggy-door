@@ -1,12 +1,15 @@
 <template>
   <div>
-  <h1>Dogs</h1>
-  <DogCard
-    :key="dog.id"
-    v-for="dog in dogs"
-    :dog="dog"
-    @click.native="selectDog(dagId.id)"
-  />
+  <h2>Dogs</h2>
+  <div>
+    <DogCard
+      :key="dog.id"
+      v-for="dog in dogs"
+      :dog="dog"
+      @click.native="selectShelter(dog.id)"
+      class="card"
+    />
+  </div>
   </div>
 </template>
 
@@ -24,15 +27,21 @@ export default {
     dogs: []
   }),
   mounted() {
-    this.getAllDogs()
+    this.getDogs()
   },
   methods: {
-    async getAllDogs() {
+    async getDogs() {
       const res = await axios.get(`${API_URL}/dogs`)
       this.dogs = res.data
+    },
+    selectShelter(dogId) {
+      this.$router.push(`dogs/${dogId}`)
     }
   }
-
 }
 
 </script>
+
+<style scoped>
+
+</style>

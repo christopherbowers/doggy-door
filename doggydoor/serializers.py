@@ -26,7 +26,7 @@ class DogSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Dog
-        fields = ('id', 'name', 'age', 'breed', 'color', 'description', 'adopted', 'likes', 'dog_url', 'breed_id', 'shelter')
+        fields = ('id', 'name', 'age', 'breed', 'color', 'description', 'adopted', 'likes', 'dog_url', 'breed_id', 'shelter', 'image')
 
 
 class BreedSerializer(serializers.HyperlinkedModelSerializer):
