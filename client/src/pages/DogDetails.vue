@@ -38,9 +38,9 @@ export default {
       await axios.delete(`${API_URL}/dogs/${id}`)
       this.$router.push('/dogs')
     },
-    handleSubmit() {
+    // handleSubmit() {
 
-    }
+    // }
     // async getBreed() {
     //   const breed_url = this.dogDetails
     //   console.log(breed_url)
@@ -56,4 +56,8 @@ export default {
 .dog-image {
      height: 200px;
    }
+
+li {
+  list-style: none;
+}
 </style>
