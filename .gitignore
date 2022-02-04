@@ -1,6 +1,4 @@
 .env
-<<<<<<< HEAD
-=======
 *.log
 *.pot
 *.pyc
@@ -19,4 +17,3 @@ media
 .Trashes
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
->>>>>>> bc0bb34 (set up heroku)
