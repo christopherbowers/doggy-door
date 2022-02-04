@@ -1,17 +1,21 @@
 <template>
 <div>
-  <h1>Doggy Door.</h1>
+  <h1>Doggy Door</h1>
 <carousel-3d>
-  <slide v-for='dog in dogs' :key="dog.id" :index="dog.id">
-   <DogCard :dog='dog'/>
+  <slide v-for='dog in dogs' :key="dog.id" :index="dog.id" :style='{color: myColor}'>
+  <router-link :key='dog.id' to='/dogs'><img :src='dog.image' /></router-link>
   </slide>
 </carousel-3d>
+
+<h1>Welcome to Doggy Door.</h1>
+<h3> Open a doggy door into their furever home </h3>
 </div>
+
+
 </template>
 
 <script>
 import { Carousel3d, Slide } from 'vue-carousel-3d'
-import DogCard from '../components/DogCard.vue'
 import axios from 'axios'
 const API_URL = process.env.VUE_APP_API_URL
 
@@ -19,11 +23,11 @@ export default {
   name: 'Home',
   components: {
     Carousel3d,
-    Slide,
-    DogCard
+    Slide
   },
   data: () => ({
-    dogs: []
+    dogs: [],
+    myColor: 'white'
   }),
   mounted() {
     this.getDogs()
@@ -40,3 +44,9 @@ export default {
 }
 
 </script>
+
+<style scoped>
+slide{
+  background-color:azure;
+}
+</style>

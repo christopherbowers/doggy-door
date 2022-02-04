@@ -1,13 +1,14 @@
 <template>
   <div>
     <h1>{{ dogDetails.name }}</h1>
-    <img :src="dogDetails.image" />
+    <img :src="dogDetails.image" className='dog-image'/>
     <ul>
       <li>Age: {{ dogDetails.age }}</li>
       <li>Color: {{ dogDetails.color }}</li>
       <li>Description: {{ dogDetails.description }}</li>
       <li>Likes: {{ dogDetails.likes }}</li>
     </ul>
+    <button @click='deleteDog'>adopt me now!</button>
   </div>
 </template>
 
@@ -31,6 +32,14 @@ export default {
       const id = parseInt(this.$route.params.dog_id)
       const res = await axios.get(`${API_URL}/dogs/${id}`)
       this.dogDetails = res.data
+    },
+    async deleteDog() {
+      const id = parseInt(this.$route.params.dog_id)
+      await axios.delete(`${API_URL}/dogs/${id}`)
+      this.$router.push('/dogs')
+    },
+    handleSubmit() {
+
     }
     // async getBreed() {
     //   const breed_url = this.dogDetails
@@ -44,7 +53,7 @@ export default {
 </script>
 
 <style scoped>
-  img {
+.dog-image {
      height: 200px;
    }
 </style>
