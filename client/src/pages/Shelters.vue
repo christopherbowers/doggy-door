@@ -15,6 +15,7 @@
 
 <script>
 import axios from 'axios'
+const API_URL = process.env.VUE_APP_API_URL
 import ShelterCard from '../components/ShelterCard'
 
 export default {
@@ -30,7 +31,7 @@ export default {
   },
   methods: {
     async getShelters() {
-      const res = await axios.get(`http://localhost:8000/shelters`)
+      const res = await axios.get(`${API_URL}/shelters`)
       this.shelters = res.data
     },
     selectShelter(shelterId) {
