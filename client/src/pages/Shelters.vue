@@ -1,22 +1,22 @@
 <template>
   <div>
   <h2>Shelters</h2>
-  <section>
+  <div>
     <ShelterCard
       :key="shelter.id"
       v-for="shelter in shelters"
       :shelter="shelter"
       @click.native="selectShelter(shelter.id)"
+      class="card"
     />
-  </section>
+  </div>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-
+const API_URL = process.env.VUE_APP_API_URL
 import ShelterCard from '../components/ShelterCard'
-console.log(ShelterCard)
 
 export default {
   name: 'Shelters',
@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     async getShelters() {
-      const res = await axios.get(`http://localhost:8000/shelters`)
+      const res = await axios.get(`${API_URL}/shelters`)
       this.shelters = res.data
     },
     selectShelter(shelterId) {

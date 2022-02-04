@@ -58,15 +58,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware'
 ]
 
-# CORS_ALLOWED_ORIGINS = [
-#     "https://example.com",
-#     "http://localhost:3000",
-#     "http://127.0.0.1:3000"
-# ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 ROOT_URLCONF = 'doggydoor_django.urls'
 
@@ -115,14 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
-}
-
+CORS_ORIGIN_ALLOW_ALL = True
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
