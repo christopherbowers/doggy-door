@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div className='dog-page'>
   <h2>Dogs</h2>
   <div>
     <DogCard
@@ -43,5 +43,11 @@ export default {
 </script>
 
 <style scoped>
+.dog-page{
+  display: flex;
+  text-align: center;
+  margin: auto;
+}
+
 
 </style>

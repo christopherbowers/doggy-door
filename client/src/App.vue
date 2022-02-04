@@ -38,4 +38,11 @@ export default {
   color: #385c80;
 }
 
+body{
+  display: flex;
+  justify-content: center;
+  background: no-repeat;
+  background-image: linear-gradient(to top, #ffffff, #fbfdff, #f2fcff, #e7fcff, #ddfcff, #d5fbff, #ccf9fe, #c3f8fe, #baf4fe, #b2f0fe, #aaebfe, #a3e7ff);
+}
+
 </style>
