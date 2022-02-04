@@ -1,13 +1,13 @@
 <template>
   <div>
   <h2>Shelters</h2>
-  <div class="card">
+  <div>
     <ShelterCard
       :key="shelter.id"
       v-for="shelter in shelters"
       :shelter="shelter"
       @click.native="selectShelter(shelter.id)"
-      class
+      class="card"
     />
   </div>
   </div>
