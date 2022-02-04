@@ -19,6 +19,11 @@ class DogSerializer(serializers.HyperlinkedModelSerializer):
         read_only=True
     )
 
+    shelter_id = serializers.PrimaryKeyRelatedField(
+        queryset=Shelter.objects.all(),
+        source='shelter'
+    )
+
 
     dog_url = serializers.ModelSerializer.serializer_url_field(
         view_name='dog_detail'
@@ -26,7 +31,7 @@ class DogSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Dog
-        fields = ('id', 'name', 'age', 'breed', 'color', 'description', 'adopted', 'likes', 'dog_url', 'breed_id', 'shelter', 'image')
+        fields = ('id', 'name', 'age', 'breed', 'color', 'description', 'adopted', 'likes', 'dog_url', 'breed_id', 'shelter', 'image', 'shelter_id')
 
 
 class BreedSerializer(serializers.HyperlinkedModelSerializer):

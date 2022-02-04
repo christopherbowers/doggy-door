@@ -3,6 +3,7 @@
     <router-link to="/">Home</router-link>
     <router-link to="/shelters">Shelters</router-link>
     <router-link to="/dogs">All Dogs</router-link>
+    <router-link to="/newdog">Add Dog</router-link>
   </nav>
 </template>
 
